@@ -56,7 +56,6 @@ $.ajax({
       let filter = response.data[i].filter;
       let tags = response.data[i].tags;
 
-<<<<<<< HEAD
       let post = `<div class='post' id="${id_entry}">
                       <figure>
                           <img src='${srcImg}'>
@@ -85,34 +84,4 @@ $.ajax({
           }
       }); 
   }
-=======
-        let post = `<div class='post' id="${id_entry}">
-                        <figure>
-                            <img src='${srcImg}'>
-                            <figcaption><span>${likes}</span> Me gusta</figcaption>
-                            <figcaption>${response.data[i].caption.text}</figcaption>                            
-                        </figure>
-                        <p>Filter: ${filter}</p>
-                        <p>Tags: ${tags}</p>
-                        </div>`
-        
-        $('#postDiv').append(post);
-        //este ajax llama a los commentarios de cada foto
-        $.ajax({
-            url: `https://api.instagram.com/v1/media/${id_entry}/comments?access_token=ACCESS-TOKEN`
-        }).done(function (resp){
-            console.log('resp:', resp)
-            console.log('resp data:',resp.data);
-            for(j=0;j<resp.data.length;j++){
-                console.log(resp.data[j].text);
-                let comments_div = `<div class="comments_div" id="${j}">
-                                        <ul class="commentsUl">
-                                            <li class="com"><span>${resp.data[j].from.username}: </span>${resp.data[j].text}</li>
-                                        </ul>
-                                    </div>`
-                $(`#${id_entry}`).append(comments_div); 
-            }
-        }); 
-    }
->>>>>>> 4af56c6... update pkg2
 })
